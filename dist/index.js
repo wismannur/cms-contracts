@@ -1,28 +1,11 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CMS_CACHE_TAGS = exports.CMS_API_ENDPOINTS = void 0;
-__exportStar(require("./types/api"), exports);
-__exportStar(require("./types/content"), exports);
-__exportStar(require("./types/inquiries"), exports);
-__exportStar(require("./types/chat"), exports);
+export * from "./types/api.js";
+export * from "./types/content.js";
+export * from "./types/inquiries.js";
+export * from "./types/chat.js";
 /**
  * Standard CMS Public REST Endpoints
  */
-exports.CMS_API_ENDPOINTS = {
+export const CMS_API_ENDPOINTS = {
     // Read endpoints
     SETTINGS: "/api/v1/public/settings",
     PAGE_COPY: "/api/v1/public/page-copy",
@@ -38,9 +21,13 @@ exports.CMS_API_ENDPOINTS = {
     FAQS: "/api/v1/public/faqs",
     RESUME: "/api/v1/public/resume",
     CV: "/api/v1/public/cv",
+    SITE_PAGES: (slug) => `/api/v1/public/site-pages/${encodeURIComponent(slug)}`,
+    SHOWCASE: "/api/v1/public/showcase",
+    SHOWCASE_DETAIL: (slug) => `/api/v1/public/showcase/${encodeURIComponent(slug)}`,
     // Mutation endpoints
     INQUIRY_CONTACT: "/api/v1/public/inquiries/contact",
     INQUIRY_HIRE: "/api/v1/public/inquiries/hire",
+    INQUIRY_SERVICE: "/api/v1/public/inquiries/service",
     CHAT_VISITOR: "/api/v1/public/chat/visitor",
     INTERACTION_VIEW: "/api/v1/public/interactions/view",
     INTERACTION_LIKE: "/api/v1/public/interactions/like",
@@ -50,7 +37,7 @@ exports.CMS_API_ENDPOINTS = {
 /**
  * Cache tags for Next.js Incremental Static Regeneration (ISR)
  */
-exports.CMS_CACHE_TAGS = {
+export const CMS_CACHE_TAGS = {
     SETTINGS: "content:settings",
     PAGE_COPY_ALL: "content:page-copy",
     PAGE_COPY: (slug) => `content:page-copy:${slug}`,
@@ -66,5 +53,8 @@ exports.CMS_CACHE_TAGS = {
     FAQS: "content:faqs",
     RESUME: "content:resume",
     CV: "content:cv",
+    SITE_PAGE: (slug) => `content:site-pages:${slug}`,
+    SHOWCASE_ALL: "content:showcase",
+    SHOWCASE_DETAIL: (slug) => `content:showcase:${slug}`,
 };
 //# sourceMappingURL=index.js.map

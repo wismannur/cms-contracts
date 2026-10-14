@@ -1,7 +1,7 @@
-export * from "./types/api";
-export * from "./types/content";
-export * from "./types/inquiries";
-export * from "./types/chat";
+export * from "./types/api.js";
+export * from "./types/content.js";
+export * from "./types/inquiries.js";
+export * from "./types/chat.js";
 /**
  * Standard CMS Public REST Endpoints
  */
@@ -20,8 +20,12 @@ export declare const CMS_API_ENDPOINTS: {
     readonly FAQS: "/api/v1/public/faqs";
     readonly RESUME: "/api/v1/public/resume";
     readonly CV: "/api/v1/public/cv";
+    readonly SITE_PAGES: (slug: string) => string;
+    readonly SHOWCASE: "/api/v1/public/showcase";
+    readonly SHOWCASE_DETAIL: (slug: string) => string;
     readonly INQUIRY_CONTACT: "/api/v1/public/inquiries/contact";
     readonly INQUIRY_HIRE: "/api/v1/public/inquiries/hire";
+    readonly INQUIRY_SERVICE: "/api/v1/public/inquiries/service";
     readonly CHAT_VISITOR: "/api/v1/public/chat/visitor";
     readonly INTERACTION_VIEW: "/api/v1/public/interactions/view";
     readonly INTERACTION_LIKE: "/api/v1/public/interactions/like";
@@ -46,5 +50,8 @@ export declare const CMS_CACHE_TAGS: {
     readonly FAQS: "content:faqs";
     readonly RESUME: "content:resume";
     readonly CV: "content:cv";
+    readonly SITE_PAGE: (slug: string) => string;
+    readonly SHOWCASE_ALL: "content:showcase";
+    readonly SHOWCASE_DETAIL: (slug: string) => string;
 };
 //# sourceMappingURL=index.d.ts.map

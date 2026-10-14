@@ -339,3 +339,80 @@ export interface MasterCvData {
   education: ResumeEntry[];
   settings: SiteSettings;
 }
+
+export interface SitePage {
+  id: string;
+  slug: string;
+  title: string;
+  content: string;
+  isPublished: boolean;
+  createdAt: JsonDate;
+  updatedAt: JsonDate;
+}
+
+export type NewSitePage = Omit<SitePage, "id" | "createdAt" | "updatedAt">;
+export type UpdateSitePage = Partial<NewSitePage>;
+
+export type ProjectProspectStatus =
+  | "sourced"
+  | "audited"
+  | "building_mvp"
+  | "pitch_ready"
+  | "outreach_sent"
+  | "negotiation"
+  | "won"
+  | "archived";
+
+export type ProspectIndustry =
+  | "home_living"
+  | "d2c_luxury"
+  | "outdoor_mobility"
+  | "b2b_wholesale"
+  | "specialty_food"
+  | "other";
+
+export interface ProjectAuditAnalysis {
+  performanceScore?: number;
+  mobileFrictionScore?: number;
+  modernizationOpportunityScore: number;
+  detectedStack?: string[];
+  coreWebVitalIssues?: string[];
+  mobileUxPainPoints?: string[];
+  recommendedModernization?: string[];
+  modernizationPitchSummary?: string;
+  estimatedConversionLift?: string;
+  executiveSummary?: string;
+}
+
+export interface ProjectProspect {
+  id: string;
+  companyName: string;
+  companyLogo?: string;
+  companyWebsite: string;
+  industry: ProspectIndustry | string;
+  country: string;
+  city?: string;
+  timezone: string;
+  status: ProjectProspectStatus;
+  estimatedRevenueTier?: string;
+  auditScore?: number;
+  auditAnalysis?: ProjectAuditAnalysis;
+  mvpDemoUrl?: string;
+  loomVideoUrl?: string;
+  pitchScript?: string;
+  contactName?: string;
+  contactRole?: string;
+  contactEmail?: string;
+  contactLinkedin?: string;
+  outreachStatus?: string;
+  outreachSentAt?: JsonDate;
+  followUpDueDate?: JsonDate;
+  notes?: string;
+  sortOrder: number;
+  createdAt: JsonDate;
+  updatedAt: JsonDate;
+}
+
+export type NewProjectProspect = Omit<ProjectProspect, "id" | "createdAt" | "updatedAt">;
+export type UpdateProjectProspect = Partial<NewProjectProspect>;
+

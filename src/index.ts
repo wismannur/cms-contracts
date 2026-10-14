@@ -1,7 +1,7 @@
-export * from "./types/api";
-export * from "./types/content";
-export * from "./types/inquiries";
-export * from "./types/chat";
+export * from "./types/api.js";
+export * from "./types/content.js";
+export * from "./types/inquiries.js";
+export * from "./types/chat.js";
 
 /**
  * Standard CMS Public REST Endpoints
@@ -22,10 +22,14 @@ export const CMS_API_ENDPOINTS = {
   FAQS: "/api/v1/public/faqs",
   RESUME: "/api/v1/public/resume",
   CV: "/api/v1/public/cv",
+  SITE_PAGES: (slug: string) => `/api/v1/public/site-pages/${encodeURIComponent(slug)}`,
+  SHOWCASE: "/api/v1/public/showcase",
+  SHOWCASE_DETAIL: (slug: string) => `/api/v1/public/showcase/${encodeURIComponent(slug)}`,
 
   // Mutation endpoints
   INQUIRY_CONTACT: "/api/v1/public/inquiries/contact",
   INQUIRY_HIRE: "/api/v1/public/inquiries/hire",
+  INQUIRY_SERVICE: "/api/v1/public/inquiries/service",
   CHAT_VISITOR: "/api/v1/public/chat/visitor",
   INTERACTION_VIEW: "/api/v1/public/interactions/view",
   INTERACTION_LIKE: "/api/v1/public/interactions/like",
@@ -53,4 +57,7 @@ export const CMS_CACHE_TAGS = {
   FAQS: "content:faqs",
   RESUME: "content:resume",
   CV: "content:cv",
+  SITE_PAGE: (slug: string) => `content:site-pages:${slug}`,
+  SHOWCASE_ALL: "content:showcase",
+  SHOWCASE_DETAIL: (slug: string) => `content:showcase:${slug}`,
 } as const;
