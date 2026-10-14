@@ -1,0 +1,56 @@
+export * from "./types/api";
+export * from "./types/content";
+export * from "./types/inquiries";
+export * from "./types/chat";
+
+/**
+ * Standard CMS Public REST Endpoints
+ */
+export const CMS_API_ENDPOINTS = {
+  // Read endpoints
+  SETTINGS: "/api/v1/public/settings",
+  PAGE_COPY: "/api/v1/public/page-copy",
+  PROJECTS: "/api/v1/public/projects",
+  PROJECT_DETAIL: (slug: string) => `/api/v1/public/projects/${encodeURIComponent(slug)}`,
+  BLOGS: "/api/v1/public/blogs",
+  BLOG_DETAIL: (slug: string) => `/api/v1/public/blogs/${encodeURIComponent(slug)}`,
+  SERVICES: "/api/v1/public/services",
+  SERVICE_DETAIL: (slug: string) => `/api/v1/public/services/${encodeURIComponent(slug)}`,
+  SKILLS: "/api/v1/public/skills",
+  AVAILABILITY: "/api/v1/public/availability",
+  TESTIMONIALS: "/api/v1/public/testimonials",
+  FAQS: "/api/v1/public/faqs",
+  RESUME: "/api/v1/public/resume",
+  CV: "/api/v1/public/cv",
+
+  // Mutation endpoints
+  INQUIRY_CONTACT: "/api/v1/public/inquiries/contact",
+  INQUIRY_HIRE: "/api/v1/public/inquiries/hire",
+  CHAT_VISITOR: "/api/v1/public/chat/visitor",
+  INTERACTION_VIEW: "/api/v1/public/interactions/view",
+  INTERACTION_LIKE: "/api/v1/public/interactions/like",
+
+  // Invalidation Webhook
+  REVALIDATE: "/api/revalidate",
+} as const;
+
+/**
+ * Cache tags for Next.js Incremental Static Regeneration (ISR)
+ */
+export const CMS_CACHE_TAGS = {
+  SETTINGS: "content:settings",
+  PAGE_COPY_ALL: "content:page-copy",
+  PAGE_COPY: (slug: string) => `content:page-copy:${slug}`,
+  PROJECTS_ALL: "content:projects",
+  PROJECT_DETAIL: (slug: string) => `content:projects:${slug}`,
+  BLOGS_ALL: "content:blogs",
+  BLOG_DETAIL: (slug: string) => `content:blogs:${slug}`,
+  SERVICES_ALL: "content:services",
+  SERVICE_DETAIL: (slug: string) => `content:services:${slug}`,
+  SKILLS: "content:skills",
+  AVAILABILITY: "content:availability",
+  TESTIMONIALS: "content:testimonials",
+  FAQS: "content:faqs",
+  RESUME: "content:resume",
+  CV: "content:cv",
+} as const;

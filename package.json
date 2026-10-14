@@ -1,0 +1,35 @@
+{
+  "name": "@wismannur/cms-contracts",
+  "version": "1.0.0",
+  "description": "Shared TypeScript contracts, API types, endpoints, and cache tags between cms.wismannur.pro and wismannur.pro",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cms",
+    "contracts",
+    "typescript",
+    "types",
+    "wismannur"
+  ],
+  "author": "Wisman Nur",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
