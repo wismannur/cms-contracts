@@ -1,5 +1,5 @@
 {
-  "name": "@wismannur/cms-contracts",
+  "name": "@wismannur.pro/cms-contracts",
   "version": "1.0.0",
   "type": "module",
   "description": "Shared TypeScript contracts, API types, endpoints, and cache tags between cms.wismannur.pro and wismannur.pro",
